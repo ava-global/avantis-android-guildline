@@ -10,6 +10,8 @@
 * Plugins
 
 ----
+## Language
+Android development using [Kotlin](https://developer.android.com/kotlin)
 
 ## Architecture
 We using Architecture Component + UseCase by working through an end-to-end use case.
@@ -19,6 +21,7 @@ We using Architecture Component + UseCase by working through an end-to-end use c
 ### View Layer
 * Activity
 * Fragment
+* ViewModel
 
 ### Domain Layer
 * UseCase
@@ -47,6 +50,18 @@ if (shouldFetch) {
 ```
 
 ---
+### Dependencies Injection
+* [Koin](https://insert-koin.io/) 
+A pragmatic and lightweight dependency injection framework for Kotlin developers
+
+###  [Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines)
+Coroutines is our recommended solution for asynchronous programming on Android. Noteworthy features include the following:
+
+-   **Lightweight**: You can run many coroutines on a single thread due to support for  [_suspension_](https://kotlinlang.org/docs/reference/coroutines/basics.html), which doesn't block the thread where the coroutine is running. Suspending saves memory over blocking while supporting many concurrent operations.
+-   **Fewer memory leaks**: Use  [_structured concurrency_](https://kotlinlang.org/docs/reference/coroutines/basics.html#structured-concurrency)  to run operations within a scope.
+-   **Built-in cancellation support**:  [Cancellation](https://kotlinlang.org/docs/reference/coroutines/cancellation-and-timeouts.html)  is propagated automatically through the running coroutine hierarchy.
+-   **Jetpack integration**: Many Jetpack libraries include  [extensions](https://developer.android.com/kotlin/ktx)  that provide full coroutines support. Some libraries also provide their own  [coroutine scope](https://developer.android.com/topic/libraries/architecture/coroutines)  that you can use for structured concurrency.
+---
 ### View Binding
 View binding  is a feature that allows you to more easily write code that interacts with views. Once view binding is enabled in a module, it generates a  _binding class_  for each XML layout file present in that module. An instance of a binding class contains direct references to all views that have an ID in the corresponding layout.
 
@@ -65,6 +80,24 @@ Ref : [Android ViewBinding](https://developer.android.com/topic/libraries/view-b
 
 ---
 ## Code style
+
+#### Resources 
+Resources file names are written in **lowercase_underscore**.
+
+##### Drawable
+Naming conventions for icons (taken from [Android iconography guidelines](http://developer.android.com/design/style/iconography.html)):
+|Asset Type| Prefix | Example |
+|--|--|--|
+| Icons | `ic_`  | `ic_home.png` |
+|Menu icons|`ic_menu_`|`ic_menu_notification.png`|
+
+##### Layout
+| Component | Class Name | Layout Name |
+|--|--| --|
+| Activity | `ProfileActivity` | `activity_profile.xml`
+| Fragment| `ProfileFragment`| `fragment_profile.xml`
+| Dialog| `ErrorDialog`| `dialog_error.xml`
+
 
 ## Plugins
 

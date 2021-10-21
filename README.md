@@ -3,5 +3,5 @@
 ## Overview
 
 * Architecture
-* Code stype
+* Code style
 * Plugins

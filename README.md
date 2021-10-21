@@ -1,6 +1,7 @@
 
 
 
+
 # Avantis Android Guidelines
 
 ## Overview
@@ -83,20 +84,41 @@ Ref : [Android ViewBinding](https://developer.android.com/topic/libraries/view-b
 
 #### Resources 
 Resources file names are written in **lowercase_underscore**.
+![Screen Shot 2564-10-21 at 18 45 24](https://user-images.githubusercontent.com/91863302/138270711-f3c2c9e9-ffb0-4799-8b6b-5293e56ec21e.png)
+Ref : [cheat sheet](https://jeroenmols.com/blog/2016/03/07/resourcenaming/)
 
 ##### Drawable
+
+
+| Asset Type | Prefix | Example |
+|--|--| --|
+| Background | `bg_` | `bg_circle_white.xml`
+| Selector| `selector_`| `selector_button_login.xml`
+| Ripple | `ripple_`| `ripple_button_login.xml`
+| Circke||
+
+
 Naming conventions for icons (taken from [Android iconography guidelines](http://developer.android.com/design/style/iconography.html)):
 |Asset Type| Prefix | Example |
 |--|--|--|
 | Icons | `ic_`  | `ic_home.png` |
 |Menu icons|`ic_menu_`|`ic_menu_notification.png`|
 
+
 ##### Layout
+Layouts are relatively simple, as there usually are only a few layouts per screen.
+`<WHAT>_<WHERE>.xml`
+ 
 | Component | Class Name | Layout Name |
 |--|--| --|
 | Activity | `ProfileActivity` | `activity_profile.xml`
 | Fragment| `ProfileFragment`| `fragment_profile.xml`
 | Dialog| `ErrorDialog`| `dialog_error.xml`
+|Widget or CustomView| `ProfileView` | `view_profile.xml`
+|Layout | - | `layout_login.xml`
+|Item| - | `item_article.xml`
+
+##### Strings
 
 
 ## Plugins

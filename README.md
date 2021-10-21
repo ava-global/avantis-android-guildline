@@ -1,5 +1,6 @@
 
 
+
 # Avantis Android Guidelines
 
 ## Overview
@@ -15,11 +16,27 @@ We using Architecture Component + UseCase by working through an end-to-end use c
 
 <img width="819" alt="Screen Shot 2564-10-21 at 16 52 39" src="https://user-images.githubusercontent.com/91863302/138255324-4d8df2d1-eeb6-4309-84eb-88e67fbdac5f.png">
 
-### Repository
+### View Layer
+* Activity
+* Fragment
+
+### Domain Layer
+* UseCase
+* CoroutineUseCase
+
+### Data Layer
+* Model
+* Repository
+* Remote
+* Local
+* Service
+
+#### Repository
 
 <img width="980" alt="Screen Shot 2564-10-21 at 17 32 12" src="https://user-images.githubusercontent.com/91863302/138260930-26bbfb84-f7f4-4a0a-a581-55f93018cc29.png">
 
 ```
+//NetworkBoundResource
 val dbSource = loadFromDb()  
 val shouldFetch = shouldFetch(dbSource)  
 if (shouldFetch) {  
@@ -44,6 +61,19 @@ android {
 ```
 Note : We not use data binding
 
-Ref : [android ViewBinding](https://developer.android.com/topic/libraries/view-binding)
+Ref : [Android ViewBinding](https://developer.android.com/topic/libraries/view-binding)
 
 ---
+## Code style
+
+## Plugins
+
+ ### [JSON To Kotlin Class ​(JsonToKotlinClass)](https://plugins.jetbrains.com/plugin/9960-json-to-kotlin-class-jsontokotlinclass-)
+
+Plugin for Kotlin to convert Json String into Kotlin data class code quickly.
+
+Fast use it with short cut key ALT + K on Windows or Option + K on Mac
+
+<img width="819" alt="Screen Shot 2564-10-21 at 17 43 52" src="https://user-images.githubusercontent.com/91863302/138262441-47648798-f14d-46a9-a339-101576c0fdcf.png">
+---
+

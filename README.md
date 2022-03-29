@@ -84,42 +84,91 @@ Ref : [Android ViewBinding](https://developer.android.com/topic/libraries/view-b
 
 #### Resources 
 Resources file names are written in **lowercase_underscore**.
-![Screen Shot 2564-10-21 at 18 45 24](https://user-images.githubusercontent.com/91863302/138270711-f3c2c9e9-ffb0-4799-8b6b-5293e56ec21e.png)
-Ref : [cheat sheet](https://jeroenmols.com/blog/2016/03/07/resourcenaming/)
+#### String
+String names start with a prefix that identifies the section they belong to. We use `**<HOW>_<DESCRIPTION>**` for strings naming. `<HOW>` to indicate reason of the string will be used & `description` give any extra information.
+| Description | Usage |Prefix | Example |
+|--|--| --|--|
+| "Trade" | Title, SubTitle , Message, Description |`label_` | `<string name="label_trade">Trade</string>`
+| "Trade" | Button, Action, Menu |`action_` | `<string name="action_trade">Trade</string>`
+| "Enter password" | Hint |`hint_` | `<string name="hint_password">Enter password</string>`
+| "Password invalid" | Error |`error_` | `<string name="error_password_invalid">Password invalid. Please try again.</string>`
 
-##### Drawable
+#### Drawable
 
+`<WHAT>_<WHERE>`
+For `feature/xxxx`
+| Asset Type | Prefix | Example |
+|--|--| --|
+| Background | `bg_` | `bg_profile.xml`, `bg_button_trade.xml`
+
+`<WHAT>_<DESCRIPTION_1>_<DESCRIPTION_2>_<DESCRIPTION_999>_<SIZE>`
+For `share/design` 
 
 | Asset Type | Prefix | Example |
 |--|--| --|
-| Background | `bg_` | `bg_circle_white.xml`
+| Background, Shape | `bg_` | `bg_white_circle.xml` , `bg_white_circle_stroke_red.xml` , `bg_white_stroke_2_red.xml`,`bg_white_corner_5_stroke_2_red.xml`, `bg_gradient_red_green_yellow.xml`
 | Selector| `selector_`| `selector_button_login.xml`
 | Ripple | `ripple_`| `ripple_button_login.xml`
-| Circke||
+| Divider | `divider_`| `divider_green.xml` ,`divider_dash_green.xml` 
 
 
 Naming conventions for icons (taken from [Android iconography guidelines](http://developer.android.com/design/style/iconography.html)):
+Add in `/share/design`
 |Asset Type| Prefix | Example |
 |--|--|--|
 | Icons | `ic_`  | `ic_home.png` |
 |Menu icons|`ic_menu_`|`ic_menu_notification.png`|
 
+If you need to change icon color use `android:tint=`
 
-##### Layout
+#### Layout
 Layouts are relatively simple, as there usually are only a few layouts per screen.
 `<WHAT>_<WHERE>.xml`
  
-| Component | Class Name | Layout Name |
-|--|--| --|
-| Activity | `ProfileActivity` | `activity_profile.xml`
-| Fragment| `ProfileFragment`| `fragment_profile.xml`
-| Dialog| `ErrorDialog`| `dialog_error.xml`
-|Widget or CustomView| `ProfileView` | `view_profile.xml`
-|Layout | - | `layout_login.xml`
-|Item| - | `item_article.xml`
+| Component | Class Name | Layout Name | Usage |
+|--|--| --|--|
+| Activity | `ProfileActivity` | `activity_profile.xml` | content view for activity
+| Fragment| `ProfileFragment`| `fragment_profile.xml` | view for a fragment
+| Dialog| `ErrorDialog`| `dialog_error.xml` | view for dialog, dialog fragment
+| BottomSheet | `FilterBottomSheetDialog`|`bottomsheet_filter.xml`| view for a Bottomsheet dialog fragment
+|Widget or CustomView| `ProfileView` | `view_profile.xml` | inflated by a custom view
+|Layout | - | `layout_login.xml` | layout reused using the include tag
+|Item| - | `item_article.xml` | layout used in list/recycler/gridview
 
-##### Strings
+#### Variable 
+| Description | suffix | Example | Note |
+|--|--| --|--|
+| User list, Users | `List` | `userList`
+|For data class if object `{}`| `Data` | `UserData` | set `var` & nullable field & initial by null `var contentID: String? = null,`
 
+#### Constant
+
+```
+//For Public Constant, Type, Create `annotation class`
+@Retention(AnnotationRetention.SOURCE)  
+annotation class PinStatus {  
+    companion object {  
+        const val RESET = "RESET"  
+  const val SET = "SET"  
+  const val NORMAL = "NORMAL"  
+  }  
+}
+```
+
+```
+//For Private Constant, Create constant
+
+private const val DISPLAY_TYPE = "DISPLAY_TYPE" // <-- on top class name
+class XXXXX {
+...
+}
+``` 
+```
+//For Actions Constant create `object`
+object Demo {  
+    const val ACTION = "action.demo.open"  
+}
+```
 
 ## Plugins
 

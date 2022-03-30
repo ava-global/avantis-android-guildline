@@ -84,6 +84,49 @@ Ref : [Android ViewBinding](https://developer.android.com/topic/libraries/view-b
 
 #### Resources 
 Resources file names are written in **lowercase_underscore**.
+
+#### ID naming
+IDs should be prefixed with the type of the object. For example:
+| Element | Prefix |
+|--|--|
+| TextView | tv |
+| EditText | edt |
+| TextInputLayout | til |
+| Button | btn |
+| ImageButton | imb |
+| CheckBox | cb |
+| RadioGroup | rg |
+| RadioButton | rb |
+| ToggleButton | tb |
+| Switch | switch |
+| FloatingActionButton | fab |
+| View | view |
+| ImageView |imv |
+| WebView | webView |
+| VideoView | videoView |
+| CalendarView | calendar |
+| ProgressBar | pb |
+| SeekBar | sb |
+| RatingBar | rating |
+| SearchView | searchView |
+| SurfaceView | surfaceView |
+| Horizontal, Vertical Divider | divider |
+| Constraint, Linear, Frame, Layout | layout |
+| Table Layout | tableLayout |
+| Space | space |
+| Spinner | spinner |
+| RecyclerView | rv |
+| Nested, Scroll View | scrollView |
+| ViewPager2 | viewPager |
+| CardView | card |
+| AppBarLayout | appBar |
+| ToolBar | toolBar |
+| TabLayout | tabLayout |
+| TabItem | tabItem |
+| Include | layout |
+| Guideline | guideline |
+| MapView | map |
+
 #### String
 String names start with a prefix that identifies the section they belong to. We use `**<HOW>_<DESCRIPTION>**` for strings naming. `<HOW>` to indicate reason of the string will be used & `description` give any extra information.
 | Description | Usage |Prefix | Example |
@@ -106,7 +149,7 @@ For `share/design`
 
 | Asset Type | Prefix | Example |
 |--|--| --|
-| Background, Shape | `bg_` | `bg_white_circle.xml` , `bg_white_circle_stroke_red.xml` , `bg_white_stroke_2_red.xml`,`bg_white_corner_5_stroke_2_red.xml`, `bg_gradient_red_green_yellow.xml`
+| Background, Shape | `bg_` | `bg_white_circle.xml` , `bg_white_circle_stroke_red.xml` , `bg_white_stroke_2_red.xml`,`bg_white_corner_5_stroke_2_red.xml`, `bg_gradient_red_green_yellow.xml`, `bg_stroke_2_red.xml`
 | Selector| `selector_`| `selector_button_login.xml`
 | Ripple | `ripple_`| `ripple_button_login.xml`
 | Divider | `divider_`| `divider_green.xml` ,`divider_dash_green.xml` 
@@ -116,7 +159,7 @@ Naming conventions for icons (taken from [Android iconography guidelines](http:/
 Add in `/share/design`
 |Asset Type| Prefix | Example |
 |--|--|--|
-| Icons | `ic_`  | `ic_home.png` |
+| Icons | `ic_`  | `ic_home.png`, `ic_home.xml` |
 |Menu icons|`ic_menu_`|`ic_menu_notification.png`|
 
 If you need to change icon color use `android:tint=`
@@ -138,7 +181,7 @@ Layouts are relatively simple, as there usually are only a few layouts per scree
 #### Variable 
 | Description | suffix | Example | Note |
 |--|--| --|--|
-| User list, Users | `List` | `userList`
+| User list, Users | `List` | `userList` |  MutableList is recommended
 |For data class if object `{}`| `Data` | `UserData` | set `var` & nullable field & initial by null `var contentID: String? = null,`
 
 #### Constant
@@ -148,9 +191,9 @@ Layouts are relatively simple, as there usually are only a few layouts per scree
 @Retention(AnnotationRetention.SOURCE)  
 annotation class PinStatus {  
     companion object {  
-        const val RESET = "RESET"  
-  const val SET = "SET"  
-  const val NORMAL = "NORMAL"  
+		const val RESET = "RESET"  
+		const val SET = "SET"  
+		const val NORMAL = "NORMAL"  
   }  
 }
 ```
@@ -160,7 +203,7 @@ annotation class PinStatus {
 
 private const val DISPLAY_TYPE = "DISPLAY_TYPE" // <-- on top class name
 class XXXXX {
-...
+	...
 }
 ``` 
 ```
